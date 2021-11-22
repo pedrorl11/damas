@@ -34,9 +34,16 @@ function criaTabuleiro() {
     return tabela;
 }
 
-function criaPeca(cor) {
+function criaPeca(black) {
     let imagem = document.createElement('img');
-    imagem.setAttribute('src', `img/${cor}.png`);
+    imagem.setAttribute('src', `img/${black}.png`);
+    imagem.setAttribute('width', `${tamanhoCelula-4}px`);
+    imagem.setAttribute('height', `${tamanhoCelula-4}px`);
+    return imagem;
+}
+function criaPeca(red) {
+    let imagem = document.createElement('img');
+    imagem.setAttribute('src', `img/${red}.png`);
     imagem.setAttribute('width', `${tamanhoCelula-4}px`);
     imagem.setAttribute('height', `${tamanhoCelula-4}px`);
     return imagem;
