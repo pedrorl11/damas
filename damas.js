@@ -41,10 +41,3 @@ function criaPeca(black) {
     imagem.setAttribute('height', `${tamanhoCelula-4}px`);
     return imagem;
 }
-function criaPeca(red) {
-    let imagem = document.createElement('img');
-    imagem.setAttribute('src', `img/${red}.png`);
-    imagem.setAttribute('width', `${tamanhoCelula-4}px`);
-    imagem.setAttribute('height', `${tamanhoCelula-4}px`);
-    return imagem;
-}
