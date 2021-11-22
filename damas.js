@@ -35,7 +35,7 @@ function criaTabuleiro() {
 }
 
 function criaPeca(black) {
-    let imagem = document.createElement('img.png');
+    let imagem = document.createElement('img');
     imagem.setAttribute('src', `img/${black}.png`);
     imagem.setAttribute('width', `${tamanhoCelula-4}px`);
     imagem.setAttribute('height', `${tamanhoCelula-4}px`);
