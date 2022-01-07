@@ -54,29 +54,68 @@ function criaPeca(cor) {
     return imagem;
 }
 
-celulasPretas = document.querySelectorAll(".black", ".cheio");
+celulasPretas = document.querySelectorAll(".black", ".cheioB", ".cheioR");
 celulasPretas.forEach(casaPreta => {
-    if (casaPreta.className != "cheio"){
+    if (casaPreta.className != "cheioR" && casaPreta.className != "cheioB"){
         casaPreta.addEventListener("dragover", function(evento){
             evento.preventDefault();
+            if (evento.target.className == "vermelho"){
+                if (dragged.className == "preto"){
+                    dragged.parentNode.className = "antR";
+                    evento.target.className = "M";
+                    pos = evento.target.parentNode.id;
+                }    
+            }
+            if (evento.target.className == "preto"){
+                if (dragged.className == "vermelho"){
+                    dragged.parentNode.className = "antB"
+                    evento.target.className = "M";
+                    pos = evento.target.parentNode.id;
+                }
+            }
         });
         casaPreta.addEventListener("drop", function(evento){
             evento.preventDefault();
             if (evento.target.className == "black"){
-                if (dragged.className == "preto"){
+                switch (dragged.className){
+                    case "preto": 
                     if (evento.target.id == parseInt(dragged.parentNode.id) + 11 || evento.target.id == parseInt(dragged.parentNode.id) + 9){
                         dragged.parentNode.className = "black";
                         dragged.parentNode.removeChild( dragged );
                         evento.target.appendChild( dragged );
-                        evento.target.className = "cheio";
-                    };
-                } else if (dragged.className == "vermelho"){
-                    if (evento.target.id == dragged.parentNode.id - 11 || evento.target.id == dragged.parentNode.id - 9){
-                        dragged.parentNode.className = "black";
-                        dragged.parentNode.removeChild( dragged );
-                        evento.target.appendChild( dragged );
-                        evento.target.className = "cheio";
-                    };
+                        evento.target.className = "cheioB";
+                    }
+                    if (evento.target.id == parseInt(dragged.parentNode.id) + 22 || evento.target.id == parseInt(dragged.parentNode.id) + 18){
+                        if (dragged.parentNode.className == "antR"){
+                            dragged.parentNode.className = "black";
+                            dragged.parentNode.removeChild( dragged );
+                            evento.target.appendChild( dragged );
+                            evento.target.className = "cheioB";
+                            trs = document.querySelectorAll("tr");
+                            trs[parseInt(pos / 10) - 1].childNodes[(pos % 10) - 1].childNodes[0].remove();
+                            trs[parseInt(pos / 10) - 1].childNodes[(pos % 10) - 1].className = "black";
+                        }
+                    }
+                    case "vermelho":
+                        if (evento.target.id == dragged.parentNode.id - 11 || evento.target.id == dragged.parentNode.id - 9){
+                            if (dragged.className == "vermelho"){
+                                dragged.parentNode.className = "black";
+                                dragged.parentNode.removeChild( dragged );
+                                evento.target.appendChild( dragged );
+                                evento.target.className = "cheioR";
+                            }
+                        }
+                        if (evento.target.id == parseInt(dragged.parentNode.id) - 22 || evento.target.id == parseInt(dragged.parentNode.id) - 18){
+                            if (dragged.parentNode.className == "antB"){
+                                dragged.parentNode.className = "black";
+                                dragged.parentNode.removeChild( dragged );
+                                evento.target.appendChild( dragged );
+                                evento.target.className = "cheioR";
+                                trs = document.querySelectorAll("tr");
+                                trs[parseInt(pos / 10) - 1].childNodes[(pos % 10) - 1].childNodes[0].remove();
+                                trs[parseInt(pos / 10) - 1].childNodes[(pos % 10) - 1].className = "black";
+                            }
+                        }
                 }
             }
         }, false);
