@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <form action="" method="post">
+            <fieldset>
+                <legend><span class="number">1</span>Dados Pessoais</legend>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="user">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="user_email">
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="user_senha">
+
+                <label for="confirmasenha">Confirma Senha</label>
+                <input type="password" id="confirmasenha" name="user_confirmasenha">
+
+                <label>Idade:</label>
+                <input type="radio" id="acima_17" value="acima_17" name="user_idade">
+                <label for="acima_17" class="light">Acima 17</label><br>
+
+                <input type="radio" id="abaixo_17" value="abaixo_17"name="user_idade">
+                <label for="abaixo_17" class="light">Abaixo ou igual 17</label>
+
+            </fieldset>  
+            
+            <fieldset>
+                <legend><span class="number">2</span>Perfil</legend>
+                <label for="descricao">Descrição:</label>
+                <textarea></textarea>
+
+                <select id="Ttrabalho" name="user_trabalho">
+                <optgroup label="Mobile">
+                <option value="ios">IOS Developer</option>
+                <option value="android">Android Developer</option>
+                </optgroup>
+
+                <optgroup label="Web">
+                <option value="front">Front-End</option>
+                <option value="back">Back-End</option>
+                </optgroup>
+                </select>
+                
+                <label>Interesses:</label>
+                <input type="checkbox" id="programador" value="interesse_prog"name="user_interesse1">
+                <label for="programador" class="light">Programador</label>
+
+                <input type="checkbox" id="design" value="interesse_desi"name="user_interesse2">
+                <label for="design" class="light">Design</label>
+
+                <input type="checkbox" id="analista" value="interesse_anali"name="user_interesse3">
+                <label for="analista" class="light">Analista</label>
+
+            </fieldset>
+            <button type="submit">Enviar dados</button>
+        </form>
+    </div>
+
+
+</body>
+</html>
