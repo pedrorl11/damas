@@ -1,0 +1,41 @@
+a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}
+.links{
+    display: none;
+    background-color: gray    ;
+}
+
+li{
+    list-style: none;
+}
+
+#but{
+    font-size: 20px;
+    padding: 25px;
+}
+
+#usuario{
+    border-color: black;
+}
+
+#senha{
+    border-color: black;
+}
+
+#svazia{
+    display: none;
+    color: red;
+}
+
+#uvazia{
+    display: none;
+    color: red;
+}
+
+#stam{
+    display: none;
+    color: red;
+}
